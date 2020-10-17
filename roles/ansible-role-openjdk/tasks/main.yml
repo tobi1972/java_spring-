@@ -1,6 +1,16 @@
 ---
-- name: Install OpenJDK
+- name: Install OpenJDK RedHat
   yum:
     name:
-    - "java-{{ open_jdk_version }}-openjdk"
-    - maven
+     - "java-{{ open_jdk_version }}-openjdk"
+     - maven
+  when: ansible_os_family == 'RedHat'
+
+- name: install OpenJDK Debian
+  package:
+    name:
+     - openjdk-11-jdk
+     - maven
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+

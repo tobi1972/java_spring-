@@ -20,7 +20,7 @@
       creates: /spring/target
 
   - name: Start App
-    shell: 'pkill java & nohup java -jar target/*.jar &'
+    shell: ' nohup java -jar target/*.jar &'
     args:
       chdir: /spring
 
